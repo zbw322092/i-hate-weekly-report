@@ -1,0 +1,14 @@
+{
+  "name": "i-hate-weekly-report",
+  "version": "1.0.0",
+  "description": "using nodejs to make writing weekly report easiler",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Bowen Zhong",
+  "license": "ISC",
+  "dependencies": {
+    "xlsx": "^0.9.3"
+  }
+}

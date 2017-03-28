@@ -17,3 +17,19 @@ var desired_cell = worksheet[address_of_cell];
 var desired_value = (desired_cell ? desired_cell.v : undefined);
 
 console.log(desired_value);
+
+XLSX.writeFile(workbook, './files/out.xlsx');
+
+console.log(desired_cell);
+console.log(desired_cell.v); // cell value
+console.log(desired_cell.t); // cell type
+console.log(desired_cell.w);
+
+console.log(worksheet['!ref']);
+console.log(worksheet['!cols']);
+console.log(worksheet['!merges']);
+
+console.log(workbook.Props);
+
+var json = XLSX.utils.sheet_to_json(worksheet);
+console.log(json);

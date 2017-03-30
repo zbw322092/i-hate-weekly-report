@@ -22,5 +22,6 @@ function alertContents() {
 	}
 }
 
-document.getElementById('ajaxButton').onclick = 
+document.getElementById('ajaxButton').onclick = function() {
 	makeRequest('http://localhost:1337');
+};

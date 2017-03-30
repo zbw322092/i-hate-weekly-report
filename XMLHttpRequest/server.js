@@ -2,7 +2,8 @@ var http = require('http');
 
 var server = http.createServer(function(req, res) {
 	res.writeHead(200, {
-		'Content-Type': 'text/plain'
+		'Content-Type': 'text/plain',
+		'Access-Control-Allow-Origin': 'http://localhost:8001'
 	});
 	res.end('okay');
 

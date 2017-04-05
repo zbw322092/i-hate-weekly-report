@@ -9,6 +9,17 @@
   "author": "Bowen Zhong",
   "license": "ISC",
   "dependencies": {
+    "angular": "^1.4.3",
+    "angular-route": "^1.4.3",
     "xlsx": "^0.9.3"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zbw322092/i-hate-weekly-report.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zbw322092/i-hate-weekly-report/issues"
+  },
+  "homepage": "https://github.com/zbw322092/i-hate-weekly-report#readme"
 }

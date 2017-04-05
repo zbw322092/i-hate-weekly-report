@@ -1,2 +1,1 @@
-angular.module('weekReport', ['ngRoute'])
-	.config()
+var app = angular.module('weekReport', ['ngRoute']);

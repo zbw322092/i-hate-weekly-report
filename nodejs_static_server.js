@@ -28,8 +28,8 @@ var server = http.createServer(function(req, res) {
     var filePath = path.join(process.cwd(), parsedUrl.pathname);
     var fileExt = path.parse(req.url).ext;
     var mime = mimeType[fileExt] || 'text/plain';
-    console.log(parsedUrl);
-    console.log(filePath);
+    // console.log(parsedUrl);
+    // console.log(filePath);
 
 
     fs.stat(filePath, function(err, stats) {

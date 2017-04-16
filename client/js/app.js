@@ -1,5 +1,7 @@
 var app = angular.module('weekReport', ['ngRoute'])
-	.config(['$routeProvider', function($routeProvider) {
+	.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+		$locationProvider.hashPrefix('');
+
 		var routeConfig = {
 			controller: 'WeekReportCtrl',
 			templateUrl: 'weekReport-index.html'

@@ -5,4 +5,5 @@ app.controller('WeekReportCtrl', [
 ) {
 	$scope.test = 'it is an angular test binding';
 	$scope.templateContent = 'template content';
+	$scope.canIBind = 'Yes, you can';
 }]);

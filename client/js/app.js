@@ -9,6 +9,10 @@ var app = angular.module('weekReport', ['ngRoute'])
 
 		$routeProvider
 			.when('/week_report', routeConfig)
+			.when('/can_I_bind', {
+				controller: 'WeekReportCtrl',
+				templateUrl: '/client/views/report_content_form.html'
+			})
 			.otherwise({
 				redirectTo: '/week_report'
 			});

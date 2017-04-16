@@ -4,19 +4,11 @@
 	<title></title>
 </head>
 <body ng-controller="WeekReportCtrl">
-	<p ng-bind="test"></p>
-	<ng-view></ng-view>
 	
-	<script type="text/ng-template" id="weekReport-index.html">
-		<div>
-			It is an Angular template
-		</div>
-		<p ng-bind="templateContent"></p>
-	</script>
+	<ui-view></ui-view>
 
-
-	<script src="../node_modules/angular/angular.min.js"></script>
-	<script src="../node_modules/angular-route/angular-route.min.js"></script>
+	<script src="../lib/angular.min.js"></script>
+	<script src="../lib/angular-ui-router.min.js"></script>
 	<script src="./js/app.js"></script>
 	<script src="./js/controller/weekReportCtrl.js"></script>
 </body>

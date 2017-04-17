@@ -1,5 +1,5 @@
 <div class="week-report">
-	<form class="content-form">
+	<form name="reportForm" class="content-form">
 		<div class="form-header">
 			<span>Affairs</span>
 			<span>Time</span>
@@ -9,18 +9,33 @@
 
 		<div class="input-group">
 			<div class="input-container">
-				<input></input>
+				<input ng-model="affairs" required>
 			</div>
 			<div class="input-container">
-				<input></input>
+				<input ng-model="time" required>
 			</div>
 			<div class="input-container">
-				<input></input>
+				<input ng-model="author" required>
 			</div>
 			<div class="input-container">
-				<input></input>
+				<input ng-model="completion" required>
 			</div>
+			<div class="tick-mark" ng-show="reportForm.$valid"></div>
 		</div>
 
 	</form>
+
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+

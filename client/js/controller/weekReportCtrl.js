@@ -4,4 +4,6 @@ app.controller('WeekReportCtrl', [
 	$scope
 ) {
 	$scope.canIBind = 'Yes, you can';
+
+	
 }]);

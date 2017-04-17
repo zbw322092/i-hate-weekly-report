@@ -1,3 +1,26 @@
+@imgPath: '../assets';
+@unit: 75rem;
+.size(@width, @height) {
+	width: @width;
+	height: @height;
+}
+.transform(@degX, @degY) {
+  transform: translateX(@degX) translateY(@degY);
+  -ms-transform: translateX(@degX) translateY(@degY);
+  /* IE 9 */
+  -moz-transform: translateX(@degX) translateY(@degY);
+  /* Firefox */
+  -webkit-transform: translateX(@degX) translateY(@degY);
+  /* Safari 和 Chrome */
+  -o-transform: translateX(@degX) translateY(@degY);
+  /* Opera */
+}
+
+.background(@picName) {
+  background: url('@{imgPath}/@{picName}') 0 0 no-repeat;
+  background-size: 100% 100%;
+}
+
 body {
 	margin: 0 !important;
 }

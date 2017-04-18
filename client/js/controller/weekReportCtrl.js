@@ -1,7 +1,9 @@
 app.controller('WeekReportCtrl', [
-	'$scope'
-, function(
-	$scope
+	'$scope',
+	'$http',
+	function(
+		$scope,
+		$http
 ) {
 	$scope.canIBind = 'Yes, you can';
 	$scope.formData = [{
@@ -22,7 +24,22 @@ app.controller('WeekReportCtrl', [
 	};
 
 	$scope.submitForm = function() {
-		console.log($scope.formData);
+		var config = {
+			method: 'POST',
+			url: '/example',
+			headers: {
+			  'Content-Type': undefined
+			},
+			data: { test: 'test' }
+		};
+
+		$http(config)
+			.then(function() {
+				console.log('ok');
+			})
+			.catch(function() {
+				console.log('failed');
+			});
 	};
 
 

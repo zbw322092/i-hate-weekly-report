@@ -1,11 +1,12 @@
-function weekReportService() {
+function weekReportService(data) {
 	var config = {
 		 method: 'POST',
-		 url: '/example',
+		 url: '/submit/formdata',
 		 headers: {
-		   'Content-Type': undefined
+		   'Content-Type': 'application/json'
 		 },
-		 data: { test: 'test' }
+		 data: data
 	};
-
 }
+
+module.exports = weekReportService;

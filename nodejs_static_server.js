@@ -60,9 +60,10 @@ var server = http.createServer(function(req, res) {
 });
 
 server.on('request', function(req, res) {
-  if (req.method === 'POST') {
+  if (req.method === 'POST' && req.url === '/submit/formdata') {
     console.log('headers: ', req.headers);
-    // console.log('request: ', req);
+    console.log('url: ', req.url);
+    
     var body = '';
     req.on('data', function(data) {
       body += data;
@@ -75,6 +76,9 @@ server.on('request', function(req, res) {
 
     req.on('end', function() {
       console.log('Post Data: ', body);
+      console.log('Post Data Type: ', typeof body);
+      console.log('Parsed Data: ', JSON.parse(body));
+      console.log('Parsed Data Type: ', typeof JSON.parse(body));
     });
 
     res.writeHead(200, {'Content-Type': 'text/plain'});

@@ -10,8 +10,8 @@ app.config([
 	$locationProvider.hashPrefix('');
 
 	var helloState = {
-		name: 'hello',
-		url: '/hello',
+		name: 'index',
+		url: '',
 		templateUrl: '/client/views/report_content_form.html',
 		controller: 'WeekReportCtrl'
 	};

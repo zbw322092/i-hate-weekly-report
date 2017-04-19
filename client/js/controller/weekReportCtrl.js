@@ -26,11 +26,11 @@ app.controller('WeekReportCtrl', [
 	$scope.submitForm = function() {
 		var config = {
 			method: 'POST',
-			url: '/example',
+			url: '/submit/formdata',
 			headers: {
-			  'Content-Type': undefined
+			  'Content-Type': 'application/json'
 			},
-			data: { test: 'test' }
+			data: JSON.stringify($scope.formData)
 		};
 
 		$http(config)
@@ -46,3 +46,18 @@ app.controller('WeekReportCtrl', [
 
 
 }]);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

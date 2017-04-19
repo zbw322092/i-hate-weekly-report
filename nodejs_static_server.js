@@ -61,8 +61,22 @@ var server = http.createServer(function(req, res) {
 
 server.on('request', function(req, res) {
   if (req.method === 'POST') {
-    // console.log('headers: ', req.headers);
-    console.log('request: ', req);
+    console.log('headers: ', req.headers);
+    // console.log('request: ', req);
+    var body = '';
+    req.on('data', function(data) {
+      body += data;
+    });
+
+    // Too much POST data, kill the connection
+    if (body.length > 1e6) {
+      req.connection.destory();
+    }
+
+    req.on('end', function() {
+      console.log('Post Data: ', body);
+    });
+
     res.writeHead(200, {'Content-Type': 'text/plain'});
     res.end('ok');
   }
@@ -73,3 +87,22 @@ server.on('request', function(req, res) {
 server.listen(parseInt(port, 10), function() {
     console.log(`server is listening on port ${parseInt(port, 10)}`);
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

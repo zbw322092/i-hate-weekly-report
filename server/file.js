@@ -22,12 +22,15 @@ function createFile(fileDataObj) {
 			worksheet.getCell(cellPosition).value = fileDataObj[j-2][keysArray[k]];
 		}
 	}
+	
 	workbook.commit()
 		.then(function() {
-			console.log('commit file SUCCESSED');
+      res.writeHead(200, {'Content-Type': 'text/plain'});
+      res.end('commit file SUCCESSED');
 		})
 		.catch(function() {
-			console.log('commit file FAILED');
+      res.writeHead(404, {'Content-Type': 'text/plain'});
+      res.end('commit file FAILED');
 		});
 }
 

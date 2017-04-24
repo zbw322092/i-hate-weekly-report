@@ -79,6 +79,7 @@ server.on('request', function(req, res) {
       var parsedBody = JSON.parse(body);
       console.log('Parsed Data: ', parsedBody);
 
+
       createFile(parsedBody);
         // .then(function() {
         //   res.writeHead(200, {'Content-Type': 'text/plain'});
@@ -88,9 +89,6 @@ server.on('request', function(req, res) {
         //   res.writeHead(404, {'Content-Type': 'text/plain'});
         //   res.end('commit file FAILED');
         // });
-        
-        // res.writeHead(200, {'Content-Type': 'text/plain'});
-        // res.end('I am Here');
 
     });
 

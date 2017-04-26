@@ -36,10 +36,12 @@ app.controller('WeekReportCtrl', [
 		$http(config)
 			.then(function() {
 				console.log('ok');
-			})
-			.catch(function() {
+			},function() {
 				console.log('failed');
 			});
+			// .catch(function() {
+			// 	console.log('failed');
+			// });
 	};
 
 

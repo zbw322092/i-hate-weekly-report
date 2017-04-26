@@ -23,15 +23,15 @@ function createFile(fileDataObj) {
 		}
 	}
 	
-	workbook.commit()
-		.then(function() {
-      res.writeHead(200, {'Content-Type': 'text/plain'});
-      res.end('commit file SUCCESSED');
-		})
-		.catch(function() {
-      res.writeHead(404, {'Content-Type': 'text/plain'});
-      res.end('commit file FAILED');
-		});
+	return workbook.commit();
+		// .then(function() {
+  //     res.writeHead(200, {'Content-Type': 'text/plain'});
+  //     res.end('commit file SUCCESSED');
+		// })
+		// .catch(function() {
+  //     res.writeHead(404, {'Content-Type': 'text/plain'});
+  //     res.end('commit file FAILED');
+		// });
 }
 
 module.exports = createFile;

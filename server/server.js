@@ -75,26 +75,23 @@ server.on('request', function(req, res) {
       req.connection.destory();
     }
 
-    var aaa = res;
     req.on('end', function() {
       var parsedBody = JSON.parse(body);
       console.log('Parsed Data: ', parsedBody);
 
-      // console.log(createFile(parsedBody));
       createFile(parsedBody)
-        .then(function() {
-          console.log('I am ok');
-          res.writeHead(200, {'Content-Type': 'text/plain'});
-          res.end('commit file SUCCESSEDdddddddddddddd');
-        })
-        .catch(function() {
-          console.log('something wrong');
-          // aaa.writeHead(404, {'Content-Type': 'text/plain'});
-          // aaa.end('commit file FAILED');
-        });
+        .then(successCb())
+        .catch(failedCb());
 
-          res.writeHead(200, {'Content-Type': 'text/plain'});
-          res.end('commit file SUCCESSED');
+      function successCb() {
+        res.writeHead(200, {'Content-Type': 'text/plain'});
+        res.end('commit file SUCCESSED');
+      }
+
+      function failedCb() {
+        res.writeHead(404, {'Content-Type': 'text/plain'});
+        res.end('commit file FAILED');
+      }
     });
 
 

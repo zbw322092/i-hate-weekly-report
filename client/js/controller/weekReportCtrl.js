@@ -1,9 +1,11 @@
 app.controller('WeekReportCtrl', [
 	'$scope',
 	'$http',
+	'hotkeys',
 	function(
 		$scope,
-		$http
+		$http,
+		hotkeys
 ) {
 	$scope.canIBind = 'Yes, you can';
 	$scope.formData = [{
@@ -43,6 +45,15 @@ app.controller('WeekReportCtrl', [
 			// 	console.log('failed');
 			// });
 	};
+
+	hotkeys.bindTo($scope)
+		.add({
+			combo: 'alt+enter',
+			description: 'add a new line',
+			callback: function() {
+				window.alert('Yes, a new line here');
+			}
+		});
 
 
 

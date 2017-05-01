@@ -1,4 +1,4 @@
-var app = angular.module('weekReport', ['ui.router']);
+var app = angular.module('weekReport', ['ui.router', 'cfp.hotkeys']);
 app.config([
 	'$stateProvider',
 	'$locationProvider',

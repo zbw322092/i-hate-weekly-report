@@ -1,10 +1,12 @@
 app.controller('WeekReportCtrl', [
 	'$scope',
 	'$http',
+	'$timeout',
 	'hotkeys',
 	function(
 		$scope,
 		$http,
+		$timeout,
 		hotkeys
 ) {
 	$scope.canIBind = 'Yes, you can';
@@ -23,6 +25,11 @@ app.controller('WeekReportCtrl', [
 			completion: null
 		};
 		$scope.formData.push(initRowData);
+		$timeout(function() {
+			var forms = document.getElementsByClassName('first-input');
+			var lastForm = forms[$scope.formData.length-1];
+			lastForm.foucs();
+		},500);
 	};
 
 	$scope.submitForm = function() {

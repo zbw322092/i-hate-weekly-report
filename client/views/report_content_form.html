@@ -1,16 +1,17 @@
 <div class="week-report">
-	<form name="reportForm" class="content-form">
-		<div class="add-icon" ng-click="addNewLine()"></div>
-		<div class="form-header">
-			<span>Affairs</span>
-			<span>Time</span>
-			<span>Author</span>
-			<span>Completion</span>
-		</div>
+	<div class="add-icon" ng-click="addNewLine()"></div>
+	<div class="form-header">
+		<span>Affairs</span>
+		<span>Time</span>
+		<span>Author</span>
+		<span>Completion</span>
+	</div>
+	<form name="reportForm" class="content-form" ng-repeat="data in formData track by $index">
+
 		
-		<div class="input-group" ng-repeat="data in formData track by $index">
+		<div class="input-group" >
 			<div class="input-container">
-				<input ng-model="data.affairs" required>
+				<input ng-model="data.affairs" class="first-input" required>
 			</div>
 			<div class="input-container">
 				<input ng-model="data.time" required>

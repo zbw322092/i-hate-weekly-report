@@ -38,22 +38,28 @@ app.controller('WeekReportCtrl', [
 		$http(config)
 			.then(function() {
 				console.log('ok');
-			},function() {
+			})
+			.catch(function() {
 				console.log('failed');
 			});
-			// .catch(function() {
-			// 	console.log('failed');
-			// });
 	};
 
-	hotkeys.bindTo($scope)
-		.add({
-			combo: 'alt+enter',
-			description: 'add a new line',
-			callback: function() {
-				window.alert('Yes, a new line here');
-			}
-		});
+  $scope.keydownInLastInput = function(keyEvent) {
+    console.log(keyEvent);
+    if (keyEvent.key === 'Alt') {
+    	keyEvent.srcElement.blur();
+    	hotkeys
+    		.add({
+					combo: 'alt+enter',
+					description: 'add a new line',
+					callback: function(event) {
+						$scope.addNewLine();
+						hotkeys.del('alt+enter');
+					}
+    		});
+    }
+  };
+
 
 
 

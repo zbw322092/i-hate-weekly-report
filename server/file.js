@@ -1,8 +1,10 @@
 var Excel = require('exceljs');
+var fileTitleWithDate = require('../lib/utils/fileTitleWithDate.js');
 
 function createFile(fileDataObj) {
+	var fileTitle = fileTitleWithDate(undefined, 'Bowen');
 	var options = {
-		filename: 'server/Week-Report-Example-Files-Repo/week-report.xlsx'
+		filename: 'server/Week-Report-Example-Files-Repo/'+ fileTitle +'.xlsx'
 	}
 	var workbook = new Excel.stream.xlsx.WorkbookWriter(options);
 	var worksheet = workbook.addWorksheet('Week Report Sheet');

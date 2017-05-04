@@ -4,6 +4,7 @@ var path = require('path');
 var url = require('url');
 var port = process.argv[2] || 9000;
 var createFile = require('./file.js');
+var gitWeekReport = require('./gitWeekReport.js');
 
 var mimeType = {
     '.ico': 'image/x-icon',
@@ -84,6 +85,7 @@ server.on('request', function(req, res) {
         .catch(failedCb());
 
       function successCb() {
+        gitWeekReport()
         res.writeHead(200, {'Content-Type': 'text/plain'});
         res.end('commit file SUCCESSED');
       }

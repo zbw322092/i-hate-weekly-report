@@ -2,7 +2,7 @@ var Excel = require('exceljs');
 
 function createFile(fileDataObj) {
 	var options = {
-		filename: 'server/files/week-report.xlsx'
+		filename: 'server/Week-Report-Example-Files-Repo/week-report.xlsx'
 	}
 	var workbook = new Excel.stream.xlsx.WorkbookWriter(options);
 	var worksheet = workbook.addWorksheet('Week Report Sheet');

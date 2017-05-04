@@ -28,8 +28,8 @@ app.controller('WeekReportCtrl', [
 		$timeout(function() {
 			var forms = document.getElementsByClassName('first-input');
 			var lastForm = forms[$scope.formData.length-1];
-			lastForm.foucs();
-		},500);
+			lastForm.focus();
+		});
 	};
 
 	$scope.submitForm = function() {

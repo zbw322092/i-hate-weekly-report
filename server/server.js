@@ -23,17 +23,14 @@ var mimeType = {
     '.ttf': 'aplication/font-sfnt'
 };
 
-var server = http.createServer(function(req, res) {
-    // console.log(req.method, req.url);
-    // console.log(req);
+var server = http.createServer(function(req, res) {});
 
+server.on('request', function(req, res) {
+  if (req.method === 'GET') {
     var parsedUrl = url.parse(req.url);
     var filePath = path.join(process.cwd(), parsedUrl.pathname);
     var fileExt = path.parse(req.url).ext;
     var mime = mimeType[fileExt] || 'text/plain';
-    // console.log(parsedUrl);
-    // console.log(filePath);
-
 
     fs.stat(filePath, function(err, stats) {
         if (err) {
@@ -59,10 +56,8 @@ var server = http.createServer(function(req, res) {
             }
         });
     });
-});
 
-server.on('request', function(req, res) {
-  if (req.method === 'POST' && req.url === '/submit/formdata') {
+  } else if (req.method === 'POST' && req.url === '/submit/formdata') {
     console.log('headers: ', req.headers);
     console.log('url: ', req.url);
     
@@ -80,26 +75,28 @@ server.on('request', function(req, res) {
       var parsedBody = JSON.parse(body);
       console.log('Parsed Data: ', parsedBody);
 
-      createFile(parsedBody)
-        .then(successCb())
-        .catch(failedCb());
+      createFile(parsedBody, createFileCb);
 
-      function successCb() {
-        gitWeekReport()
-        res.writeHead(200, {'Content-Type': 'text/plain'});
-        res.end('commit file SUCCESSED');
+      function createFileCb() {
+        // handler file git
+        gitWeekReport(gitFailedCb, gitSuccessCb);
       }
 
-      function failedCb() {
+      function gitFailedCb(err) {
         res.writeHead(404, {'Content-Type': 'text/plain'});
-        res.end('commit file FAILED');
+        res.end('Push File FAILED');
+      }
+
+      function gitSuccessCb(result) {
+        console.log('Push Done');
+        res.writeHead(200, {'Content-Type': 'text/plain;'});
+        res.end('Push File SUCCESSED');
       }
     });
 
-
   }
-});
 
+});
 
 
 server.listen(parseInt(port, 10), function() {

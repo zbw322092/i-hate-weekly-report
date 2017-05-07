@@ -1,7 +1,7 @@
 var Excel = require('exceljs');
 var fileTitleWithDate = require('../lib/utils/fileTitleWithDate.js');
 
-function createFile(fileDataObj) {
+function createFile(fileDataObj, callback) {
 	var fileTitle = fileTitleWithDate(undefined, 'Bowen');
 	var options = {
 		filename: 'server/Week-Report-Example-Files-Repo/'+ fileTitle +'.xlsx'
@@ -24,16 +24,9 @@ function createFile(fileDataObj) {
 			worksheet.getCell(cellPosition).value = fileDataObj[j-2][keysArray[k]];
 		}
 	}
-	
-	return workbook.commit();
-		// .then(function() {
-  //     res.writeHead(200, {'Content-Type': 'text/plain'});
-  //     res.end('commit file SUCCESSED');
-		// })
-		// .catch(function() {
-  //     res.writeHead(404, {'Content-Type': 'text/plain'});
-  //     res.end('commit file FAILED');
-		// });
+
+		workbook.commit()
+			.then(callback);
 }
 
 module.exports = createFile;

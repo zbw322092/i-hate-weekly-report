@@ -1,14 +1,13 @@
-var EventEmitter = require('events');
 var git = require('simple-git')(__dirname + '/Week-Report-Example-Files-Repo');
 
-function updateAndUploadFile() {
+function updateAndUploadFile(errHandler, callback) {
 	git
 		.then(function() {
 			console.log('Starting Pull...');
 		})
 		.pull(function(err, update) {
 			if (err) {
-				return 'PULL_FAILED';
+				return errHandler(err);
 			}
 		})
 		.then(function() {
@@ -21,11 +20,9 @@ function updateAndUploadFile() {
 		})
 		.push('origin', 'master', function(err, result) {
 			if (err) {
-				return 'PUSH_FAILED';
+				return errHandler(err);
 			}
-		})
-		.then(function() {
-			console.log('Push Done');
+			callback(result);
 		});
 }
 

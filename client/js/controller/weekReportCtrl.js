@@ -43,12 +43,14 @@ app.controller('WeekReportCtrl', [
 		};
 
 		$http(config)
-			.then(function() {
-				console.log('ok');
-			})
-			.catch(function() {
-				console.log('failed');
-			});
+			.then(
+				function(data) {
+					console.log(data);
+					console.log('ok');
+				}, function() {
+					console.log('failed');
+				}
+			);
 	};
 
   $scope.keydownInLastInput = function(keyEvent) {

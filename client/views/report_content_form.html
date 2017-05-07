@@ -1,14 +1,12 @@
 <div class="week-report">
-	<div class="add-icon" ng-click="addNewLine()"></div>
 	<div class="form-header">
 		<span>Affairs</span>
 		<span>Time</span>
 		<span>Author</span>
 		<span>Completion</span>
+		<div class="add-icon" ng-click="addNewLine()"></div>
 	</div>
 	<form name="reportForm" class="content-form" ng-repeat="data in formData track by $index">
-
-		
 		<div class="input-group" >
 			<div class="input-container">
 				<input ng-model="data.affairs" class="first-input" required>
@@ -27,7 +25,9 @@
 
 	</form>
 	
-	<button ng-click="submitForm()">Submit</button>
+	<div class="button-container">
+		<div ng-click="submitForm()">Submit and Push</div>		
+	</div>
 </div>
 
 

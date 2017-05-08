@@ -61,8 +61,8 @@ app.controller('WeekReportCtrl', [
 		$scope['deleteMark' + index] = false;
 	};
 
-	$scope.deleteRow = function() {
-		
+	$scope.deleteRow = function(index) {
+		$scope.formData.splice(index,1);
 	};
 
 

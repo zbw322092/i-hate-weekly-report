@@ -6,22 +6,22 @@
 		<span>Completion</span>
 		<div class="add-icon" ng-click="addNewLine()"></div>
 	</div>
-	<form name="reportForm" class="content-form" ng-repeat="data in formData track by $index">
-		<div class="input-group" ng-mouseover="showDeleteMark($index)" ng-mouseleave="hideDeleteMark($index)">
+	<form name="reportForm" class="content-form">
+		<div class="input-group" ng-repeat="data in formData track by $index" ng-mouseover="showDeleteMark($index)" ng-mouseleave="hideDeleteMark($index)">
 			<div class="input-container">
-				<input ng-model="data.affairs" class="first-input" required>
+				<input ng-model="data.affairs" name="{{'affairs' + $index}}" class="first-input" required>
 			</div>
 			<div class="input-container">
-				<input ng-model="data.time" required>
+				<input ng-model="data.time" name="{{'time' + $index}}" required>
 			</div>
 			<div class="input-container">
-				<input ng-model="data.author" required>
+				<input ng-model="data.author" name="{{'author' + $index}}" required>
 			</div>
 			<div class="input-container">
-				<input ng-model="data.completion" ng-keydown="keydownInLastInput($event);" required>
+				<input ng-model="data.completion" name="{{'completion' + $index}}" ng-keydown="keydownInLastInput($event);" required>
 			</div>
-			<div class="tick-mark" ng-show="reportForm.$valid"></div>
-			<div class="subtract-mark" ng-show="{{'deleteMark' + $index}}" ng-click="deleteRow()"></div>
+			<div class="tick-mark" ng-show="reportForm.{{'affairs' + $index}}.$valid && reportForm.{{'time' + $index}}.$valid && reportForm.{{'author' + $index}}.$valid && reportForm.{{'completion' + $index}}.$valid"></div>
+			<div class="subtract-mark" ng-show="{{'deleteMark' + $index}}" ng-click="deleteRow($index)"></div>
 		</div>
 
 	</form>

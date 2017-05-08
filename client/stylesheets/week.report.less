@@ -28,15 +28,28 @@
 		margin-top: 10px;
 		overflow: hidden;
 		.input-container {
+			position: relative;
 			display: inline-block;
 			width: 240px;
 			float: left;
 			text-align: center;
-
+			.hideNumberSpinner();
 			input {
 				width: 85%;
-				height: 25px;
+				height: 30px;
 				font-size: 14px;
+			  -webkit-box-sizing: border-box;
+			  -moz-box-sizing: border-box;
+			  box-sizing: border-box;
+			}
+			.time-input {
+				padding-right: 48px;
+			}
+			.hours {
+				position: absolute;
+				line-height: 30px;
+				right: 22px;
+				color: #666666;
 			}
 		}
 
@@ -76,20 +89,24 @@
 	.button-container {
 		width: 1020px;
 		margin: 0 auto;
-		div {
+		button {
 			float: right;
 			width: 206px;
 			height: 35px;
 			line-height: 35px;
 			margin-right: 75px;
 			margin-top: 20px;
-			border: 1px solid #e4e4e4;
-			background: #e4e4e4;
+			border: 1px solid #666666;
+			background: #666666;
 			font-size: 20px;
 			border-radius: 4px;
 			text-align: center;
+			padding: 0;
+			color: #ffffff;
 		}
-
+		.disable-button {
+			opacity: 0.5;
+		}
 	}
 }
 

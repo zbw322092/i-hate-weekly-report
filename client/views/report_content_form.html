@@ -12,7 +12,8 @@
 				<input ng-model="data.affairs" name="{{'affairs' + $index}}" class="first-input" required>
 			</div>
 			<div class="input-container">
-				<input ng-model="data.time" name="{{'time' + $index}}" required>
+				<input type="number" class="time-input" ng-model="data.time" name="{{'time' + $index}}" required>
+				<span class="hours">Hours</span>
 			</div>
 			<div class="input-container">
 				<input ng-model="data.author" name="{{'author' + $index}}" required>
@@ -27,7 +28,7 @@
 	</form>
 	
 	<div class="button-container">
-		<div ng-click="submitForm()">Submit and Push</div>		
+		<button ng-click="submitForm()" ng-disable="reportForm.$invalid" ng-class="{'disable-button': reportForm.$invalid}">Submit and Push</button>		
 	</div>
 </div>
 

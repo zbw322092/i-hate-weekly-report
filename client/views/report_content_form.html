@@ -7,7 +7,7 @@
 		<div class="add-icon" ng-click="addNewLine()"></div>
 	</div>
 	<form name="reportForm" class="content-form" ng-repeat="data in formData track by $index">
-		<div class="input-group" >
+		<div class="input-group" ng-mouseover="showDeleteMark($index)" ng-mouseleave="hideDeleteMark($index)">
 			<div class="input-container">
 				<input ng-model="data.affairs" class="first-input" required>
 			</div>
@@ -21,6 +21,7 @@
 				<input ng-model="data.completion" ng-keydown="keydownInLastInput($event);" required>
 			</div>
 			<div class="tick-mark" ng-show="reportForm.$valid"></div>
+			<div class="subtract-mark" ng-show="{{'deleteMark' + $index}}" ng-click="deleteRow()"></div>
 		</div>
 
 	</form>

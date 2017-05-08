@@ -53,6 +53,19 @@ app.controller('WeekReportCtrl', [
 			);
 	};
 
+	$scope.showDeleteMark = function(index) {
+		$scope['deleteMark' + index] = true;
+	};
+
+	$scope.hideDeleteMark = function(index) {
+		$scope['deleteMark' + index] = false;
+	};
+
+	$scope.deleteRow = function() {
+		
+	};
+
+
   $scope.keydownInLastInput = function(keyEvent) {
     console.log(keyEvent);
     if (keyEvent.key === 'Alt') {

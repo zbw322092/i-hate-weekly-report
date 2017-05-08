@@ -33,13 +33,20 @@ app.controller('WeekReportCtrl', [
 	};
 
 	$scope.submitForm = function() {
+		var copiedFormData = JSON.parse(JSON.stringify($scope.formData));
+		
+		copiedFormData.forEach(function(value) {
+			value['time'] = value['time'] + ' hours';
+			value['completion'] = value['completion'] + '%';
+		});
+
 		var config = {
 			method: 'POST',
 			url: '/submit/formdata',
 			headers: {
 			  'Content-Type': 'application/json'
 			},
-			data: JSON.stringify($scope.formData)
+			data: JSON.stringify(copiedFormData)
 		};
 
 		$http(config)

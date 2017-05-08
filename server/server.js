@@ -89,7 +89,7 @@ server.on('request', function(req, res) {
 
       function gitSuccessCb(result) {
         console.log('Push Done');
-        res.writeHead(200, {'Content-Type': 'text/plain;'});
+        res.writeHead(200, {'Content-Type': 'text/plain; charset=UTF-8'});
         res.end('Push File SUCCESSED');
       }
     });

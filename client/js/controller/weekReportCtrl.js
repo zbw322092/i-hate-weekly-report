@@ -18,10 +18,13 @@ app.controller('WeekReportCtrl', [
 	}];
 
 	$scope.addNewLine = function() {
+		if($scope.formData.length == 1) {
+			sessionStorage.setItem('authorName', $scope.formData[0].author);
+		}
 		var initRowData = {
 			affairs: null,
 			time: null,
-			author: null,
+			author: sessionStorage.getItem('authorName'),
 			completion: null
 		};
 		$scope.formData.push(initRowData);

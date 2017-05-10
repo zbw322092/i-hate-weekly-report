@@ -17,6 +17,8 @@ app.controller('WeekReportCtrl', [
 		completion: null
 	}];
 
+	$scope.showProcessing = false;
+
 	$scope.addNewLine = function() {
 		if($scope.formData.length == 1) {
 			sessionStorage.setItem('authorName', $scope.formData[0].author);
@@ -36,6 +38,8 @@ app.controller('WeekReportCtrl', [
 	};
 
 	$scope.submitForm = function() {
+		$scope.showProcessing = true;
+		$scope.processText = "Processing...";
 		var copiedFormData = JSON.parse(JSON.stringify($scope.formData));
 		
 		copiedFormData.forEach(function(value) {
@@ -57,8 +61,17 @@ app.controller('WeekReportCtrl', [
 				function(data) {
 					console.log(data);
 					console.log('ok');
+					
+					$scope.processText = "Done!";
+					$timeout(function() {
+						$scope.showProcessing = false;
+					}, 1000);
 				}, function() {
 					console.log('failed');
+					$scope.processText = "Failed. Try Again!";
+					$timeout(function() {
+						$scope.showProcessing = false;
+					}, 1000);
 				}
 			);
 	};
@@ -72,7 +85,9 @@ app.controller('WeekReportCtrl', [
 	};
 
 	$scope.deleteRow = function(index) {
-		$scope.formData.splice(index,1);
+		if ($scope.formData.length > 1) {
+			$scope.formData.splice(index,1);
+		}
 	};
 
 

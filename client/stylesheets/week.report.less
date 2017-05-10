@@ -1,8 +1,6 @@
 @import 'common.less';
 
 .week-report {
-	// padding-left: 20%;
-	// padding-right: 20%;
 	padding: 40px 150px;
 	
 		.form-header {
@@ -110,6 +108,32 @@
 			opacity: 0.5;
 		}
 	}
+
+	.loading-container {
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background: #000000;
+		opacity: 0.5;
+
+		.loading-icon {
+			width: 64px;
+			height: 64px;
+			.background('loading.gif');
+			margin: auto;
+			margin-top: 15%;
+		}
+
+		.process-text {
+			font-size: 20px;
+			color: #ffffff;
+			text-align: center;
+			margin-top: 10px;
+		}
+	}
+
 }
 
 

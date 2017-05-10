@@ -25,11 +25,14 @@
 			<div class="tick-mark" ng-show="reportForm.{{'affairs' + $index}}.$valid && reportForm.{{'time' + $index}}.$valid && reportForm.{{'author' + $index}}.$valid && reportForm.{{'completion' + $index}}.$valid"></div>
 			<div class="subtract-mark" ng-show="{{'deleteMark' + $index}}" ng-click="deleteRow($index)"></div>
 		</div>
-
 	</form>
 	
 	<div class="button-container">
 		<button ng-click="submitForm()" ng-disable="reportForm.$invalid" ng-class="{'disable-button': reportForm.$invalid}">Submit and Push</button>		
+	</div>
+	<div class="loading-container" ng-if="showProcessing">
+		<div class="loading-icon"></div>
+		<div class="process-text" ng-bind="processText"></div>
 	</div>
 </div>
 
